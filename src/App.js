@@ -1,9 +1,12 @@
 import './App.css';
+import Navbar from './components/Navbar.jsx'
+import LandingPage from './pages/LandingPage.jsx';
 
 function App() {
   return (
     <div className="App">
-      <h1>Code Brigade</h1>
+      <Navbar/> 
+      <LandingPage/>
     </div>
   );
 }
