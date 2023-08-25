@@ -1,10 +1,9 @@
 import './App.css';
-import Navbar from './components/Navbar.jsx'
 
 function App() {
   return (
     <div className="App">
-      <Navbar/> 
+      <h1>Code Brigade</h1>
     </div>
   );
 }
