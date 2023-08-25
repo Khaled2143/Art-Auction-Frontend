@@ -9,7 +9,7 @@ function LandingPage() {
             <div className="bg"/>
             <br/>
             <div className="content">
-                <h1>Featured Artwork</h1>
+                <h1 style={{color:"white"}}>Featured Artwork</h1>
                 <br/>
                 <ImageCarousel/>
             </div>

@@ -1,11 +1,10 @@
 .LandingPage{
-    background-color: rgb(147, 143, 143);
+    background-color: rgb(49, 49, 52);
 }
 .content{
     border-radius: 10%;
     margin-bottom: 40px;
 }
-
 .bg{
   background: url("../assets/CodeBrigade.gif");
   background-position: center center;
@@ -16,7 +15,6 @@
 .MyCarousel{
     width: 93%;
     margin: 0 auto;
-
 }
 .Explore{
     padding: 5px;
@@ -29,6 +27,7 @@
     border-radius: 40px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: 50px;
+    font-size: medium;
 
     &:hover {
         background-color: rgb(48, 54, 249);

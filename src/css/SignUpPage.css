@@ -1,0 +1,44 @@
+.SignUp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(49, 49, 52);
+    height:calc(100vh - var(--nav-height));
+    & input{
+        padding: 10px;
+    }
+}
+
+.signup-container {
+    background-color: white;
+    height: 400px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgb(80, 107, 244);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 350px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(80, 107, 244);
+        box-shadow: 0 2px 4px rgb(80, 107, 244);
+    }
+
+    &:active {
+        background-color: rgb(80, 107, 244);
+        box-shadow: none;
+        transform: translateY(1px);
+    }
+}
