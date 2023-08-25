@@ -6,7 +6,7 @@ function LogInPage() {
     return (
         <div className="LogIn">
             <div className="login-container">
-                <h1>Login Page</h1>
+                <h1>Login</h1>
                 <input type="text" placeholder="Username or Email" />
                 <input type="password" placeholder="Password" />
                 <button className='button'>Login</button>
