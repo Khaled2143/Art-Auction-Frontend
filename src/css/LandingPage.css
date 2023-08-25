@@ -1,9 +1,46 @@
-.Animation {
-    width: 100vw;
-    height: 100vh;
+.LandingPage{
+    background-color: rgb(147, 143, 143);
 }
+.content{
+    border-radius: 10%;
+    margin-bottom: 40px;
+}
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 36px;
+}
+.bg{
+  background: url("../assets/CodeBrigade.gif");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.MyCarousel{
+    width: 93%;
+    margin: 0 auto;
 
-.AnimatedImage {
-    width: 100%;
-    height: 100%;
+}
+.Explore{
+    padding: 5px;
+    background-color: rgb(32, 32, 248);
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    border-radius: 40px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+
+    &:hover {
+        background-color: rgb(48, 54, 249);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+        background-color: rgb(57, 70, 249);
+        box-shadow: none;
+        transform: translateY(1px);
+    }
 }

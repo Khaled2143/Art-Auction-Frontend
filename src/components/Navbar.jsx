@@ -7,6 +7,7 @@ function Navbar() {
     <div className="Navbar">
       <img className="Logo" src={logo} alt="" />
       <input className="Searchbar" placeholder='Search For Your Favorite Artist...' />
+      <button className="Artworks">Artworks</button>
       <button className="SignUpButton">Sign Up</button>
     </div>
   )

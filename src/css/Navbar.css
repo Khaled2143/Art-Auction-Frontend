@@ -18,7 +18,8 @@
     border: none;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
     background-color: rgb(205, 209, 210);
-    margin-right: 500px;
+    position: relative;
+    right: 8%;
 }
 
 .Logo {
@@ -37,10 +38,32 @@
     border: none;
     cursor: pointer;
     width: 100px;
-    /* margin-left: 550px; */
     border-radius: 100px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
     margin-right: 100px;
+
+    &:hover {
+        background-color: rgb(27, 27, 27);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+        background-color: rgb(26, 26, 26);
+        box-shadow: none;
+        transform: translateY(1px);
+    }
+}
+.Artworks {
+    padding: 5px;
+    background-color: rgb(49, 49, 52);
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    border-radius: 100px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    left: 15%;
 
     &:hover {
         background-color: rgb(27, 27, 27);
