@@ -4,10 +4,10 @@ import logo from "../assets/CBLogo.png"
 
 function Navbar() {
   return (
-    <div class = "Navbar">
-        <img class="Logo" src={logo}/>
-        <input class="Searchbar" placeholder='Search For Your Favorite Artist...'/>
-        <button class="SignUpButton">Sign Up</button>
+    <div className="Navbar">
+      <img className="Logo" src={logo} />
+      <input className="Searchbar" placeholder='Search For Your Favorite Artist...' />
+      <button className="SignUpButton">Sign Up</button>
     </div>
   )
 }
