@@ -5,10 +5,7 @@
     border-radius: 10%;
     margin-bottom: 40px;
 }
-h1{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 36px;
-}
+
 .bg{
   background: url("../assets/CodeBrigade.gif");
   background-position: center center;

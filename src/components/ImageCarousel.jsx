@@ -2,18 +2,8 @@ import React from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import image1 from "../assets/bear.png"
-import image2 from "../assets/forevermonke.png"
-import image3 from "../assets/gecko.png"
-import image4 from "../assets/howdymonke.png"
-
-const images = [
-  {src: image1, alt: ""},
-  {src: image2, alt: ""},
-  {src: image3, alt: ""},
-  {src: image4, alt: ""},
-];
-
+import {Link} from "react-router-dom"
+import images from '../utils/ImageData';
 
 function ImageCarousel() {
   const settings = {
@@ -28,10 +18,10 @@ function ImageCarousel() {
 
   return (
     <Slider className= "MyCarousel" {...settings}>
-      {images.map((image) => (
-        <div key={image.src}>
+      {images.map((image, index) => (
+        <Link to={"/artwork/" + index} key={image.src}>
           <img src={image.src} alt="carousel slide"/>
-        </div>
+        </Link>
       ))}
     </Slider>
   );

@@ -1,14 +1,17 @@
 import './App.css';
 import Navbar from './components/Navbar.jsx'
-import LandingPage from './pages/LandingPage.jsx';
 import ImageCarousel from './components/ImageCarousel';
+import Pages from './pages/Pages';
+import { BrowserRouter } from "react-router-dom"
 
 function App() {
   return (
-    <div className="App">
-      <Navbar/> 
-      <LandingPage/>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <div className="App">
+        <Pages />
+      </div>
+    </BrowserRouter>
   );
 }
 

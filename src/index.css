@@ -16,3 +16,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+h1{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 36px;
+}
+h2{
+  font-family: 'Courier New', Courier, monospace;
+}
+h4{
+  font-family: 'Courier New', Courier, monospace;
+}
