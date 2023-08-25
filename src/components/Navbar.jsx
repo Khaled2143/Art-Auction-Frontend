@@ -5,7 +5,7 @@ import logo from "../assets/CBLogo.png"
 function Navbar() {
   return (
     <div className="Navbar">
-      <img className="Logo" src={logo} />
+      <img className="Logo" src={logo} alt="" />
       <input className="Searchbar" placeholder='Search For Your Favorite Artist...' />
       <button className="SignUpButton">Sign Up</button>
     </div>
@@ -13,3 +13,4 @@ function Navbar() {
 }
 
 export default Navbar
+
