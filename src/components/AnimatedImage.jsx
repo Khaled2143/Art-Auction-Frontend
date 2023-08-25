@@ -5,7 +5,7 @@ function AnimatedImage() {
     return (
         <div>
             <div className='Animation'>
-                <img className='AnimatedImage' src={animate}></img>
+                <img className='AnimatedImage' src={animate} alt=""></img>
             </div>
         </div>
     )
