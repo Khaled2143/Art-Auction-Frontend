@@ -5,9 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 import {Link} from "react-router-dom";
 
 function ImageCarousel(props) {
+
+  const images = props.images;
+
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: images?.length > 3,
     speed: 2000,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -15,11 +18,9 @@ function ImageCarousel(props) {
     autoplaySpeed: 1500,
   };
 
-  const images = props.images;
-
   return (
     <Slider className= "MyCarousel" {...settings}>
-      {images.map((img) => (
+      {images?.map((img) => (
         <Link to={"/artwork/" + img.id} key={img.id}>
           <img src={img.image} alt="carousel slide"/>
         </Link>
