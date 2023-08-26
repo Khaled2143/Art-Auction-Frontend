@@ -1,4 +1,4 @@
-.LogIn {
+.ListArtwork {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +6,7 @@
     background-color: rgb(49, 49, 52);
 }
 
-.login-container {
+.list-artwork-container {
     background-color: white;
     height: auto;
     padding: 20px;
@@ -17,7 +17,7 @@
     gap: 1em;
     width: 350px;
 }
-.LogIn input {
+.ListArtwork input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -27,7 +27,7 @@
     margin-top: 5px;
 }
 
-.LogIn input:focus {
+.ListArtwork input:focus {
     border-color: rgb(80, 107, 244);
 }
 

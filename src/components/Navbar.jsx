@@ -8,8 +8,11 @@ function Navbar() {
     <div className="Navbar">
       <img className="Logo" src={logo} alt="" />
       <input className="Searchbar" placeholder='Search For Your Favorite Artist...' />
-      <button className="Artworks">Artworks</button>
-      <Link to="/login"><button className="LogInButton">Log In</button></Link>
+      <div className='buttons'>
+        <Link to='/artworks'><button className="Artworks">Artworks</button></Link>
+        <Link to='/list-artwork'><button className="list-art">List Your Art</button> </Link>
+        <Link to="/login"><button className="LogInButton">Log In</button></Link>
+      </div>
     </div>
   )
 }

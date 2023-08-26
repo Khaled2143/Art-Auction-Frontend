@@ -2,17 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: calc(100vh - var(--nav-height));
     background-color: rgb(49, 49, 52);
-    height:calc(100vh - var(--nav-height));
-    & input{
-        padding: 10px;
-    }
 }
 
 .signup-container {
     background-color: white;
-    height: 400px;
+    height: auto;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 1px 5px rgb(80, 107, 244);
@@ -22,7 +18,24 @@
     width: 350px;
 }
 
+/* Style for input fields */
+.signup-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    width: 80%;
+    margin-top: 5px;
+}
+
+.signup-form input:focus {
+    border-color: rgb(80, 107, 244);
+}
+
+
 button {
+    margin: 10px 0;
     width: 100%;
     padding: 10px;
     background-color: #007bff;
@@ -30,6 +43,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    
 
     &:hover {
         background-color: rgb(80, 107, 244);
@@ -41,4 +55,11 @@ button {
         box-shadow: none;
         transform: translateY(1px);
     }
+}
+
+/* Style for the error message */
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
 }

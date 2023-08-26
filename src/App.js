@@ -1,6 +1,5 @@
 import './App.css';
 import Navbar from './components/Navbar.jsx'
-import ImageCarousel from './components/ImageCarousel';
 import Pages from './pages/Pages';
 import { BrowserRouter } from "react-router-dom"
 
