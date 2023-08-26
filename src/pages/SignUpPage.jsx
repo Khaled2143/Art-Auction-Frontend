@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import "../css/SignUpPage.css";
 import Post from '../utils/Post';
+import {useNavigate} from 'react-router-dom';
 
 const validationSchema = Yup.object().shape({
     username: Yup.string().required('Username is required'),
@@ -15,6 +16,7 @@ const validationSchema = Yup.object().shape({
 });
 
 function SignUpPage() {
+    const navigate = useNavigate()
 
     const initialValues = {
         username: '',
@@ -25,11 +27,13 @@ function SignUpPage() {
     };
 
     const handleSubmit = (values) => {
+
         // Perform form submission
         Post('/users', values)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
+                navigate('/')
             })
             .catch(err => {
                 console.log(err);
