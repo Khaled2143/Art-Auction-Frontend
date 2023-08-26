@@ -62,7 +62,7 @@ function ListArtworkPage() {
                         <Field type="text" name="title" placeholder="Title" />
                         <ErrorMessage name="title" component="div" className="error" />
                         
-                        <Field type="number" name="startingPrice" placeholder="Starting Price" />
+                        <Field type="number" name="price" placeholder="Starting Price" />
                         <ErrorMessage name="startingPrice" component="div" className="error" />
                         
                         <Field name='image' component={imageUploader} />

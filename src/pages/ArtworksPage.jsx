@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../css/ArtworksPage.css"; // Create this CSS file for styling
 import Post from '../utils/Post';
+import { Link } from 'react-router-dom';
 
 
 function ArtworksPage() {
@@ -23,9 +24,9 @@ function ArtworksPage() {
     <div className="ArtworksPage">
       <div className="artworks-grid">
         {artworks.map((artwork) => (
-          <div key={artwork.id} className="artwork-item">
+          <Link to={'/artwork/'+artwork.id} key={artwork.id} className="artwork-item">
             <img src={artwork.imageUrl} alt={`Artwork ${artwork.id}`} />
-          </div>
+          </Link>
         ))}
       </div>
     </div>
