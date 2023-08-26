@@ -5,6 +5,7 @@ import ArtistsPage from './ArtistsPage'
 import LogInPage from './LogInPage'
 import SignUpPage from './SignUpPage'
 import ListArtworkPage from './ListArtworkPage'
+import ArtworksPage from './ArtworksPage'
 
 function Pages() {
   return (
@@ -15,6 +16,7 @@ function Pages() {
             <Route path="login" element={<LogInPage/>}/>
             <Route path="signup" element={<SignUpPage/>}/>
             <Route path="list-artwork" element={<ListArtworkPage/>}/>
+            <Route path="artworks" element={<ArtworksPage/>}/>
         </Routes>
     </div>
   )
