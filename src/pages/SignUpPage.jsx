@@ -29,11 +29,15 @@ function SignUpPage() {
     const handleSubmit = (values) => {
 
         // Perform form submission
-        Post('/add-users', values)
+        Post('/add-user', values)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
-                navigate('/')
+                navigate('/login', {state : {
+                    message : ["Sign up successful! Please log in.", "success"],
+                    username : values.username,
+                    password : values.password
+                }})
             })
             .catch(err => {
                 console.log(err);

@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import { useNavigate } from 'react-router';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import "../css/ListArtworkPage.css"; // Create this CSS file for styling
@@ -25,9 +26,18 @@ function imageUploader(props){
 
 function ListArtworkPage() {
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         document.title = "List Artwork | Art Market";
-    }, []);
+
+        if (!document.cookie.includes('session')) {
+            navigate('/login', {state : {
+                message : ["Please log in to list your artwork.", "error"]
+            }})
+        }
+
+    }, [navigate]);
 
     const initialValues = {
         title: '',

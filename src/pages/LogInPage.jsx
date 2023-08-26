@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import "../css/LogInPage.css";
@@ -11,9 +11,13 @@ const validationSchema = Yup.object().shape({
 });
 
 function LogInPage() {
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
     const initialValues = {
-        usernameOrEmail: '',
-        password: '',
+        usernameOrEmail: location?.state?.username || '',
+        password: location?.state?.password || '',
     };
 
     const handleSubmit = (values) => {
@@ -22,6 +26,9 @@ function LogInPage() {
             .then(res => {
                 console.log(res);
                 console.log(res.data);
+                navigate('/', {state : {
+                    message: res.data.message,
+                }})
             })
             .catch(err => {
                 console.log(err);
@@ -32,6 +39,7 @@ function LogInPage() {
 
     return (
         <div className="LogIn">
+            {location?.state?.message && <div className={location.state.message[1]}>{location.state.message[0]}</div>}
             <div className="login-container">
                 <h1>Login</h1>
                 <Formik
@@ -40,8 +48,8 @@ function LogInPage() {
                     onSubmit={handleSubmit}
                 >
                     <Form>
-                        <Field type="text" name="usernameOrEmail" placeholder="Username or Email" />
-                        <ErrorMessage name="usernameOrEmail" component="div" className="error" />
+                        <Field type="text" name="username" placeholder="Username or Email" />
+                        <ErrorMessage name="username" component="div" className="error" />
                         
                         <Field type="password" name="password" placeholder="Password" />
                         <ErrorMessage name="password" component="div" className="error" />

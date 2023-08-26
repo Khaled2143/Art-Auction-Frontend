@@ -1,3 +1,4 @@
+/* Style for the body */
 .SignUp {
     display: flex;
     justify-content: center;
@@ -6,6 +7,7 @@
     background-color: rgb(49, 49, 52);
 }
 
+/* Style for the container */
 .signup-container {
     background-color: white;
     height: auto;
@@ -26,14 +28,14 @@
     outline: none;
     font-size: 14px;
     width: 80%;
-    margin-top: 5px;
+    margin-top: 7px;
 }
 
 .signup-form input:focus {
     border-color: rgb(80, 107, 244);
 }
 
-
+/* Style for the submit button */
 button {
     margin: 10px 0;
     width: 100%;
@@ -62,4 +64,11 @@ button {
     color: red;
     font-size: 12px;
     margin-top: 5px;
+}
+
+/* Style for the success message */
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
 }
