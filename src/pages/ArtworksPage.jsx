@@ -24,7 +24,7 @@ function ArtworksPage() {
     <div className="ArtworksPage">
       <div className="artworks-grid">
         {artworks.map((artwork) => (
-          <Link to={'/artwork/'+artwork.id} key={artwork.id} className="artwork-item">
+          <Link to={'/artworks/'+artwork.id} key={artwork.id} className="artwork-item">
             <img src={artwork.imageUrl} alt={`Artwork ${artwork.id}`} />
           </Link>
         ))}

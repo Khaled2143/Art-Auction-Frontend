@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import "../css/ListArtworkPage.css"; // Create this CSS file for styling
-import Post from '../utils/Post';
+import { Post } from '../utils/APICall';
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required('Title is required'),

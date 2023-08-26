@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import "../css/SignUpPage.css";
-import Post from '../utils/Post';
+import { Post } from '../utils/APICall';
 import {useNavigate} from 'react-router-dom';
 
 const validationSchema = Yup.object().shape({
@@ -29,7 +29,7 @@ function SignUpPage() {
     const handleSubmit = (values) => {
 
         // Perform form submission
-        Post('/users', values)
+        Post('/add-users', values)
             .then(res => {
                 console.log(res);
                 console.log(res.data);

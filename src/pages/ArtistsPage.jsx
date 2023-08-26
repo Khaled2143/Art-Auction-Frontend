@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import "../css/ArtistsPage.css";
-import images from '../utils/ImageData';
-import Post from '../utils/Post';
+import {Get} from '../utils/APICall';
 
 function ArtistsPage() {
-    const [artistData, setArtistData] = useState(null);
+    const [artworkData, setArtworkData] = useState(null);
     const params = useParams();
-    const artistId = params.item;
+    const artworkId = params.item;
 
     useEffect(() => {
-        // Fetch artist data from the API based on the artistId
-        Post('/artwork', {id: artistId})
+        // Fetch artwork data from the API based on the artworkId
+        Get(`/artworks/${artworkId}`)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
-                setArtistData(res.data);
+                setArtworkData(res.data);
             }) 
             .catch(err => {
                 console.log(err);
             });
 
-    }, [artistId]);
+    }, [artworkId]);
 
-    if (!artistData) {
+    if (!artworkData) {
         return <div>Loading...</div>; // Render a loading state while fetching data
     }
 
@@ -32,15 +31,15 @@ function ArtistsPage() {
             <div className="ArtInfo">
                 <br/><br/>
                 <h1>
-                    {artistData.name}
+                    {artworkData.title}
                 </h1>
                 <div>
-                    <img src={images[artistData.imageIndex].src} alt='' />
+                    <img src={artworkData.image} alt='' />
                 </div>
             </div>
             <div className="Bidding">
                 <h2>Current Price</h2>
-                <h2 className='unbold'>{artistData.currentPrice} USD</h2>
+                <h2 className='unbold'>{artworkData.current_bid} USD</h2>
                 <br/>
                 <h2>Timer</h2>
                 <h2 className='unbold'>2:00</h2>
@@ -48,10 +47,10 @@ function ArtistsPage() {
                 <button className="bid">Bid Now</button> <input className="InputPrice" placeholder='Bid Price'/>
             </div>
             <div className="ArtistInfo">
-                <h1>Artist: {artistData.artistName}</h1>
+                <h1>Artist: {artworkData.artist_name}</h1>
                 <br/>
                 <div className="UserImage">
-                    <strong>RG</strong>
+                    <strong>{artworkData.artist_name[0]}</strong>
                 </div>
                 <br/>
                 <h2>Bio</h2>

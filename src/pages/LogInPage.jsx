@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import "../css/LogInPage.css";
-import Post from '../utils/Post';
+import { Post } from '../utils/APICall';
 
 const validationSchema = Yup.object().shape({
     usernameOrEmail: Yup.string().required('Username or Email is required'),

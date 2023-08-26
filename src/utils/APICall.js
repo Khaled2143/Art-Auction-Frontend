@@ -15,4 +15,18 @@ function Post(url, values) {
         });
 }
 
-export default Post;
+function Get(url) {
+    return axios.get(`${apiurl}${url}`)
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+            return res;
+        })
+        .catch(err => {
+            console.log(err);
+            return err;
+        });
+}
+
+export {Post};
+export {Get};
