@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import "../css/SignUpPage.css";
 import { Post } from '../utils/APICall';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useLocation} from 'react-router-dom';
 
 const validationSchema = Yup.object().shape({
     username: Yup.string().required('Username is required'),
@@ -12,35 +12,40 @@ const validationSchema = Yup.object().shape({
     confirmPassword: Yup.string()
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
         .required('Confirm Password is required'),
-    phoneNumber: Yup.string().required('Phone Number is required'),
+    phone_number: Yup.string().required('Phone Number is required'),
 });
 
 function SignUpPage() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation(); 
 
     const initialValues = {
         username: '',
         email: '',
         password: '',
         confirmPassword: '',
-        phoneNumber: '',
+        phone_number: '',
     };
 
     const handleSubmit = (values) => {
-
+ 
         // Perform form submission
         Post('/add-user', values)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
                 navigate('/login', {state : {
-                    message : ["Sign up successful! Please log in.", "success"],
+                    message : [res.data.message, "success"],
                     username : values.username,
                     password : values.password
                 }})
             })
             .catch(err => {
-                console.log(err);
+                console.log(err, "error");
+                console.log(err.response, "error response");
+                navigate('/signup', {state : {
+                    message : [err.response.data.message, "error-message"]
+                }})
             });
 
         console.log("Form submitted with values:", values);
@@ -48,6 +53,7 @@ function SignUpPage() {
 
     return (
         <div className="SignUp">
+            {location?.state?.message && <div className={location.state.message[1]}>{location.state.message[0]}</div>}
             <div className="signup-container">
                 <h1>Sign Up</h1>
                 <Formik
@@ -68,8 +74,8 @@ function SignUpPage() {
                         <Field type="password" name="confirmPassword" placeholder="Confirm Password" />
                         <ErrorMessage name="confirmPassword" component="div" className="error" />
                         
-                        <Field type="text" name="phoneNumber" placeholder="Phone Number" />
-                        <ErrorMessage name="phoneNumber" component="div" className="error" />
+                        <Field type="text" name="phone_number" placeholder="Phone Number" />
+                        <ErrorMessage name="phone_number" component="div" className="error" />
                         
                         <button type="submit">Sign Up</button>
                     </Form>

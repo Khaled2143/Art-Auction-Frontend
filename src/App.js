@@ -1,14 +1,46 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar.jsx'
 import Pages from './pages/Pages';
 import { BrowserRouter } from "react-router-dom"
+import { Post } from './utils/APICall';
 
 function App() {
+  const [authenticated, setAuthenticated] = useState(false);
+  useEffect(() => {
+    Post("/check-auth", {})
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        setAuthenticated(true);
+      })
+      .catch(err => {
+        console.log(err);
+        setAuthenticated(false);
+      });
+  }, []);
+
+  const handleLogout = () => {
+    Post('/logout', {})
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        setAuthenticated(false)
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  const handleLogin = () => {
+    setAuthenticated(true);
+  }
+
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar authenticated={authenticated} handleLogout={handleLogout} />
       <div className="App">
-        <Pages />
+        <Pages handleLogin={handleLogin} />
       </div>
     </BrowserRouter>
   );

@@ -5,6 +5,7 @@
     align-items: center;
     height: calc(100vh - var(--nav-height));
     background-color: rgb(49, 49, 52);
+    flex-direction: column;
 }
 
 /* Style for the container */
@@ -64,6 +65,12 @@ button {
     color: red;
     font-size: 12px;
     margin-top: 5px;
+}
+
+.error-message {
+    color: red;
+    font-size: 15px;
+    margin-bottom: 10px;
 }
 
 /* Style for the success message */

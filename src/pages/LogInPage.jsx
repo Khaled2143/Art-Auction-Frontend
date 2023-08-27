@@ -6,17 +6,17 @@ import "../css/LogInPage.css";
 import { Post } from '../utils/APICall';
 
 const validationSchema = Yup.object().shape({
-    usernameOrEmail: Yup.string().required('Username or Email is required'),
+    username: Yup.string().required('Username or Email is required'),
     password: Yup.string().required('Password is required'),
 });
 
-function LogInPage() {
+function LogInPage(props) {
 
     const location = useLocation();
     const navigate = useNavigate();
 
     const initialValues = {
-        usernameOrEmail: location?.state?.username || '',
+        username: location?.state?.username || '',
         password: location?.state?.password || '',
     };
 
@@ -26,12 +26,16 @@ function LogInPage() {
             .then(res => {
                 console.log(res);
                 console.log(res.data);
+                props.handleLogin();
                 navigate('/', {state : {
                     message: res.data.message,
                 }})
             })
             .catch(err => {
                 console.log(err);
+                navigate('/login', {state : {
+                    message : [err.message, "error"]
+                }})
             });
             
         console.log("Login form submitted with values:", values);

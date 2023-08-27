@@ -10,8 +10,10 @@ function Post(url, values) {
     }
 
     return axios.post(`${apiurl}${url}`, formData, {
+        withCredentials: true,
         headers: {
-            'Content-Type': 'multipart/form-data'
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'multipart/form-data',
             }})
         .then(res => {
             console.log(res);
@@ -19,8 +21,9 @@ function Post(url, values) {
             return res;
         })
         .catch(err => {
-            console.log(err);
-            return err;
+            console.log(err, "error from api");
+            console.log(err.response, "error response from api");
+            throw err;
         });
 }
 

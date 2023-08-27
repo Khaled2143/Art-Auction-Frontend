@@ -21,7 +21,7 @@ function ImageCarousel(props) {
   return (
     <Slider className= "MyCarousel" {...settings}>
       {images?.map((img) => (
-        <Link to={"/artwork/" + img.id} key={img.id}>
+        <Link to={"/artworks/" + img.id} key={img.id}>
           <img src={img.image} alt="carousel slide"/>
         </Link>
       ))}

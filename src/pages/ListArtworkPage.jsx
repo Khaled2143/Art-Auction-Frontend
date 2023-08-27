@@ -31,13 +31,22 @@ function ListArtworkPage() {
     useEffect(() => {
         document.title = "List Artwork | Art Market";
 
-        if (!document.cookie.includes('session')) {
-            navigate('/login', {state : {
-                message : ["Please log in to list your artwork.", "error"]
-            }})
-        }
+        Post('/check-auth', {})
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                if (!res.data.authenticated) {
+                    navigate('/login', {state : {
+                        message : ["You must be logged in to list an artwork", "error-message"]
+                    }}) 
+                }   
+            })
+            .catch(err => {
+                console.log(err);
+            });
 
     }, [navigate]);
+
 
     const initialValues = {
         title: '',
