@@ -34,7 +34,7 @@ function LogInPage(props) {
             .catch(err => {
                 console.log(err);
                 navigate('/login', {state : {
-                    message : [err.message, "error"]
+                    message : [err.message, "error-message"]
                 }})
             });
             

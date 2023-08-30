@@ -12,16 +12,29 @@
   background-size: cover;
   height: 100vh;
 }
+
 .MyCarousel{
     width: 93%;
     margin: 0 auto;
 }
 
-.MyCarousel img{
+.slick-track {
+    display: flex;
+    gap: 1rem;
+}
+
+.img-div{
+    height: 50vh;
+    width: 100%;
+}
+
+.img-div img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
+
 
 .Explore{
     padding: 5px;
@@ -46,4 +59,16 @@
         box-shadow: none;
         transform: translateY(1px);
     }
+}
+
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    color: red;
+    font-size: 15px;
+    margin-bottom: 10px;
 }

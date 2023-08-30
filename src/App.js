@@ -12,7 +12,7 @@ function App() {
       .then(res => {
         console.log(res);
         console.log(res.data);
-        setAuthenticated(true);
+        setAuthenticated(res.data.authenticated);
       })
       .catch(err => {
         console.log(err);
@@ -35,6 +35,8 @@ function App() {
   const handleLogin = () => {
     setAuthenticated(true);
   }
+
+  console.log(authenticated);
 
   return (
     <BrowserRouter>

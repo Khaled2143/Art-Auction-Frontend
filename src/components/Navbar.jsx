@@ -4,6 +4,7 @@ import logo from "../assets/CBLogo.png"
 import { Link } from 'react-router-dom'
 
 function Navbar(props) {
+  console.log(props.authenticated) // This is undefined
   return (
     <div className="Navbar">
       <Link to='/'><img className="Logo" src={logo} alt="" /></Link>

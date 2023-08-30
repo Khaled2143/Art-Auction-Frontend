@@ -7,8 +7,8 @@ import { Post } from '../utils/APICall';
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required('Title is required'),
-    startingPrice: Yup.number().required('Starting Price is required').min(0, 'Starting Price must be a positive number'),
-    image: Yup.string().url('Invalid URL format').required('Image URL is required'),
+    price: Yup.number().required('Starting Price is required').min(0, 'Starting Price must be a positive number'),
+    image: Yup.string().required('Image is required'),
 });
 
 function imageUploader(props){
@@ -50,21 +50,24 @@ function ListArtworkPage() {
 
     const initialValues = {
         title: '',
-        startingPrice: '',
+        price: '',
         image: '',
     };
 
     const handleSubmit = (values) => {
         // Perform artwork listing submission
-        Post('/artworks', values)
+        Post('/add-artwork', values)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
+                navigate('/', {state : {
+                    message : ["Artwork listed successfully", "success-message"]
+                }})
             })
             .catch(err => {
                 console.log(err);
             });
-    
+        
         console.log("Artwork listed with values:", values);
     };
 
@@ -82,7 +85,7 @@ function ListArtworkPage() {
                         <ErrorMessage name="title" component="div" className="error" />
                         
                         <Field type="number" name="price" placeholder="Starting Price" />
-                        <ErrorMessage name="startingPrice" component="div" className="error" />
+                        <ErrorMessage name="price" component="div" className="error" />
                         
                         <Field name='image' component={imageUploader} />
                         <ErrorMessage name="image" component="div" className="error" />

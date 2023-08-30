@@ -35,7 +35,7 @@ function SignUpPage() {
                 console.log(res);
                 console.log(res.data);
                 navigate('/login', {state : {
-                    message : [res.data.message, "success"],
+                    message : [res.data.message, "success-message"],
                     username : values.username,
                     password : values.password
                 }})

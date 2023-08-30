@@ -16,13 +16,16 @@ function ImageCarousel(props) {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 1500,
+    adaptiveHeight: true,
   };
 
   return (
     <Slider className= "MyCarousel" {...settings}>
       {images?.map((img) => (
         <Link to={"/artworks/" + img.id} key={img.id}>
+        <div className='img-div'>
           <img src={img.image} alt="carousel slide"/>
+        </div>
         </Link>
       ))}
     </Slider>
